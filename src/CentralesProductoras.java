@@ -3,7 +3,6 @@ import java.util.HashSet;
 public abstract class CentralesProductoras {
     protected int cantEnergiaAaportar;
     protected int capMaxima;
-    protected int nivelEmision;
     protected Propietario propietario;
     protected HashSet<Propietario> listaDeTodosLosPropietarios;
     protected Ciudad ciudad ;
@@ -15,24 +14,22 @@ public abstract class CentralesProductoras {
         this.listaDeTodosLosPropietarios = new HashSet<>();
     }
 
+    public boolean esContaminante(){
+       return nivelEmision() >= 70;
 
-    public int produccionTotal(Ciudad c){
-        return cantEnergiaAaportar;
     }
 
+
     public boolean estaExigida(){
-        boolean exigida=false;
-        if(cantEnergiaAaportar>=capMaxima){
-            exigida = true;
-        }
-        return exigida;
+        return calcularEnergiaProducida() >= this.capMaxima;
     }
 
     public void mostrarPropietarios(){
         System.out.println(listaDeTodosLosPropietarios);
 
     }
-    public abstract int nivelEmision(int cantGeneradores);
+    public abstract int nivelEmision();
+    public abstract int calcularEnergiaProducida();
 
 
     @Override
@@ -49,5 +46,4 @@ public abstract class CentralesProductoras {
     public void asignarCiudad(Ciudad ciudad) {
         this.ciudad = ciudad;
     }
-    public abstract boolean esEficiente();
 }

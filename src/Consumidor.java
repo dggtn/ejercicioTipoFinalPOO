@@ -3,6 +3,10 @@ public class Consumidor {
     private int CantConsumEnergia;
     private Ciudad ciudad ;
 
+    public Consumidor(String nombre) {
+        this.nombre = nombre;
+    }
+
     public Consumidor(String nombre, Ciudad ciudad) {
         this.nombre = nombre;
         this.ciudad = ciudad;

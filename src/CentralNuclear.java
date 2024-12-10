@@ -17,6 +17,7 @@ public class CentralNuclear extends CentralesProductoras {
             System.out.println("Debe ser hasta maximo 5 y minimo 1");
         }
 
+
     }
 
     @Override
